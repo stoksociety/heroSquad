@@ -1,0 +1,98 @@
+{{#partial  "title"}}
+    Heroes
+{{/partial}}
+
+{{#partial "content"}}
+    {{> navBar.hbs }}
+
+    <div class="banner jumbotron h-50">
+
+    </div>
+
+    <div class="heroes">
+        <h2>All Heroes</h2>
+        <div class="row">
+
+            {{#if allHeroes }}
+                {{#each allHeroes }}
+                    <div class="col-md-4 col-xl-3">
+                        <div class="card bg-c-green order-card">
+                            <div class="card-block">
+                                <p class="m-b-0">Power: <span class="f-right">{{ power }}</span></p>
+                                <h2 class="text-right"> {{ heroName }}</h2>
+                                <p class="m-b-0">Weakness: <span class="f-right">{{ weakness }}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <div class="alert alert-danger" role="alert">
+                    No Heroes Created!!
+                    Visit The  <a href="/" class="alert-link">HomePage</a> to Create One!
+                </div>
+
+            {{/if}}
+
+
+        </div>
+    </div>
+
+
+
+
+
+{{/partial}}
+
+<style>
+  .banner {
+    width: 90%;
+    margin: 10px auto;
+    border-radius: 24px;
+    background-image: url(https://images.unsplash.com/photo-1638964758061-117853a20865?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHBpa2FjaHV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60);
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .heroes {
+    width: 90%;
+    margin: auto;
+    };
+    .order-card {
+    color: #fff;
+}
+.bg-c-blue {
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+}
+.bg-c-green {
+    background: linear-gradient(45deg,#2ed8b6, #06050a);
+}
+.bg-c-yellow {
+    background: linear-gradient(45deg,#FFB64D,#ffcb80);
+}
+.bg-c-pink {
+    background: linear-gradient(45deg,#FF5370,#ff869a);
+}
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    border: none;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.card .card-block {
+    padding: 25px;
+}
+.order-card i {
+    font-size: 26px;
+}
+.f-left {
+    float: left;
+}
+.f-right {
+    float: right;
+}
+    </style>
+
+
+{{> layout.hbs}}

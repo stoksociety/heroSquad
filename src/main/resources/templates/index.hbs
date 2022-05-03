@@ -1,0 +1,160 @@
+{{#partial "title"}}
+    Heroes Lounge
+{{/partial}}
+
+
+
+{{#partial "content"}}
+    {{> navBar.hbs}}
+    <!--    Banner Section-->
+    <div class="banner jumbotron h-50"></div>
+
+    <!-- Super Hero Section   -->
+
+
+
+
+
+    <div class="modal fade" id="heroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create Team</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/new/hero" method="post">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Hero Name</label>
+                            <input type="text" name="heroName" class="form-control" id="" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Power</label>
+                            <input type="text" name="power" class="form-control" id="f" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Weakness</label>
+                            <input type="text" name="weakness" class="form-control" id="formGroupExampleInput2"
+                                   placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Image Url</label>
+                            <input type="text" name="imageUrl" class="form-control" id="formGroupExampleInput2"
+                                   placeholder="">
+                        </div>
+
+                        <button type="submit" class="btn" data-bs-dismiss="modal">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="heroes">
+
+        <button class="btn  m-5 " type="button" data-bs-toggle="modal" data-bs-target="#heroModal">Create Hero</button>
+
+
+        <div class="row">
+
+            {{#if allHeroes }}
+                {{#each allHeroes }}
+                    <div class="col-md-4 col-xl-3">
+                        <div class="card bg-c-green order-card">
+                            <div class="card-block">
+                                <p class="m-b-0">Power: <span class="f-right">{{ power }}</span></p>
+                                <h2 class="text-right"> {{ heroName }}</h2>
+                                <p class="m-b-0">Weakness: <span class="f-right">{{ weakness }}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <div class="alert alert-danger" role="alert">
+                    No Heroes Created!!
+                    Visit The  <a href="/" class="alert-link">HomePage</a> to Create One!
+                </div>
+
+            {{/if}}
+
+
+        </div>
+
+
+
+
+
+{{/partial}}
+
+
+
+    <style>
+    .banner {
+    width: 90%;
+    margin: 10px auto;
+    border-radius: 24px;
+    background-image: url(https://wallpaperaccess.com/full/1158056.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .heroes {
+    width: 90%;
+    margin: auto;
+    };
+    .header {
+      height: 300px;
+      }
+      .footer {
+      height: 30x;
+      background-color: #06050a;
+      color: #FFF;
+     }
+    .section-title {
+     text-align: center;
+     font-size: 28px;
+    }
+    .heroes {
+     width: 90%;
+     margin: auto;
+    }
+ .order-card {
+    color: #fff;
+}
+.bg-c-blue {
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+}
+.bg-c-green {
+    background: linear-gradient(45deg,#2ed8b6, #06050a);
+}
+.bg-c-yellow {
+    background: linear-gradient(45deg,#FFB64D,#ffcb80);
+}
+.bg-c-pink {
+    background: linear-gradient(45deg,#FF5370,#ff869a);
+}
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    border: none;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.card .card-block {
+    padding: 25px;
+}
+.order-card i {
+    font-size: 26px;
+}
+.f-left {
+    float: left;
+}
+.f-right {
+    float: right;
+}
+    </style>
+
+{{> layout.hbs }}
