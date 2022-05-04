@@ -42,8 +42,6 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-
-
         get("/teams", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             ArrayList<Team> allTeams = Team.getAllTeams();
