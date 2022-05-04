@@ -14,7 +14,7 @@ public class App {
 
 
     public static void main(String[] args) {
-  
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
         //Root Route
         get("/", (request, response) -> {
