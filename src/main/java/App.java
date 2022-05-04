@@ -16,7 +16,7 @@ public class App {
         if (processBuilder.environment().get("PORT") != null) {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-     
+        return 4567;
     }
 
     public static void main(String[] args) {
