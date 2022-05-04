@@ -12,7 +12,6 @@ public class Hero {
     public static ArrayList<Hero> getAllHeroes() {
         return allHeroes;
     }
-
     private String imageUrl;
     private static ArrayList<Hero> allHeroes = new ArrayList<>();
 
