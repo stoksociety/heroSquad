@@ -65,7 +65,6 @@ public class App {
 
             newHero.addHeroToSquad(resume);
 
-
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -81,7 +80,6 @@ public class App {
             return new ModelAndView(model, "success.hbs");
 
         }, new HandlebarsTemplateEngine());
-
 
         get("/new/:id", (request,response) -> {
             Map<String, Object> model = new HashMap<>();
