@@ -2,6 +2,7 @@ import models.Hero;
 import models.Team;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +26,7 @@ public class App {
         //Root Route
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            ArrayList<Hero>  allHeroes = Hero.getAllHeroes();
+            ArrayList<Hero> allHeroes = Hero.getAllHeroes();
             model.put("allHeroes", allHeroes);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
@@ -34,7 +35,7 @@ public class App {
         //Hero Route
         get("/heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            ArrayList<Hero>  allHeroes = Hero.getAllHeroes();
+            ArrayList<Hero> allHeroes = Hero.getAllHeroes();
             ArrayList<Team> allTeams = Team.getAllTeams();
             model.put("allHeroes", allHeroes);
             model.put("allTeams", allTeams);
@@ -45,7 +46,7 @@ public class App {
         get("/teams", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             ArrayList<Team> allTeams = Team.getAllTeams();
-            ArrayList<Hero>  allHeroes = Hero.getAllHeroes();
+            ArrayList<Hero> allHeroes = Hero.getAllHeroes();
             model.put("allTeams", allTeams);
             model.put("allHeroes", allHeroes);
             return new ModelAndView(model, "teams.hbs");
@@ -79,14 +80,14 @@ public class App {
 
         }, new HandlebarsTemplateEngine());
 
-        get("/new/:id", (request,response) -> {
+        get("/new/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             Hero thisHero = Hero.findHero(Integer.parseInt(request.params("id")));
             List<Team> thisTeam = thisHero.getTeamHeroes();
             model.put("thisHero", thisHero);
             model.put("thisTeam", thisTeam);
 
-            return  new ModelAndView(model, "teamMembers.hbs");
+            return new ModelAndView(model, "teamMembers.hbs");
         }, new HandlebarsTemplateEngine());
 
 

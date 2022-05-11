@@ -6,14 +6,14 @@ public class Hero {
     private String heroName;
     private String power;
     private String weakness;
-    private  int id;
-    private List<Team> teamHeroes;
+    private final int id;
+    private final List<Team> teamHeroes;
 
     public static ArrayList<Hero> getAllHeroes() {
         return allHeroes;
     }
     private String imageUrl;
-    private static ArrayList<Hero> allHeroes = new ArrayList<>();
+    private static final ArrayList<Hero> allHeroes = new ArrayList<>();
 
 
     public Hero(String heroName, String power, String weakness, String imageUrl) {
@@ -71,7 +71,7 @@ public class Hero {
     public  void addHeroToSquad(Team newTeam){
         teamHeroes.add(newTeam);
 
-    };
+    }
 
 
     public List<Team> getTeamHeroes() {

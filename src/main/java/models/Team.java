@@ -4,7 +4,7 @@ public class Team {
     private String name;
     private String cause;
     private String maxMembers;
-    private  static ArrayList<Team>  allTeams = new ArrayList<>();
+    private  static final ArrayList<Team>  allTeams = new ArrayList<>();
 
 
     public Team(String name, String maxMembers, String cause) {

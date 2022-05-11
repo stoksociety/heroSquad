@@ -1,27 +1,33 @@
 {{#partial  "title"}}
-    Heroes
+    Teams
 {{/partial}}
 
+
+
+
 {{#partial "content"}}
-    {{> navBar.hbs }}
-
+    {{> navBar.hbs}}
     <div class="banner jumbotron h-50">
-
     </div>
 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <div class="heroes">
-        <h2>All Heroes</h2>
+
+        <h2>All Hero Squads</h2>
         <div class="row">
 
-            {{#if allHeroes }}
-                {{#each allHeroes }}
+
+            {{#if allTeams }}
+                {{#each allTeams }}
                     <div class="col-md-4 col-xl-3">
                         <div class="card bg-c-green order-card">
                             <div class="card-block">
-                                <p class="m-b-0">Power: <span class="f-right">{{ power }}</span></p>
-                                <h2 class="text-right"> {{ heroName }}</h2>
-                                <p class="m-b-0">Weakness: <span class="f-right">{{ weakness }}</span></p>
+                                <p class="m-b-0">Cause: <span class="f-right">{{ maxMembers }}</span></p>
+                                <h2 class="text-right"><span>{{ name }}</span></h2>
+                                <p class="m-b-0">Max Members: <span class="f-right">{{ cause }}</span></p>
                             </div>
+                            <a href="/new/{{id}}">See Heroes</a>
+
                         </div>
                     </div>
                 {{/each}}
@@ -30,11 +36,15 @@
                     No Heroes Created!!
                     Visit The  <a href="/" class="alert-link">HomePage</a> to Create One!
                 </div>
+
             {{/if}}
+
+
 
 
         </div>
     </div>
+
 
 
 {{/partial}}
@@ -44,17 +54,17 @@
     width: 90%;
     margin: 10px auto;
     border-radius: 24px;
-    background-image: url(https://images.unsplash.com/photo-1638964758061-117853a20865?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHBpa2FjaHV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60);
+    background-image: url(https://wallpaperaccess.com/full/1158056.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     }
-    .heroes {
+        .order-card {
+    color: #fff;
+}
+  .heroes {
     width: 90%;
     margin: auto;
     };
-    .order-card {
-    color: #fff;
-}
 .bg-c-blue {
     background: linear-gradient(45deg,#4099ff,#73b4ff);
 }
